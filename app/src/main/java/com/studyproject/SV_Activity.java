@@ -1,15 +1,21 @@
 package com.studyproject;
 
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.studyproject.adapter.VPAdapter;
 import com.studyproject.fragment.FragmentOne;
@@ -25,6 +31,7 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
 
     private MyViewPager customvp;
     private LinearLayout ll_tablayout;
+    private LinearLayout ll_tablayout2;
     private List<Fragment> list;
     private ScrollViewLayout parentScrollView;
     private  int[] location= new int[2];
@@ -33,7 +40,8 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
     private boolean isShow;
     private View tabView;
     private PopupWindow popupWindow;
-    private LinearLayout mainview;
+    private FrameLayout mainview;
+    private TextView title_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +51,20 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
     }
 
     private void initView() {
-        mainview = (LinearLayout) findViewById(R.id.mainview);
+        if(tabView==null){
+            tabView = LayoutInflater.from(SV_Activity.this).inflate(R.layout.tab_layout,null);
+            TextView tab = (TextView) tabView.findViewById(R.id.tab);
+         //   tab.setBackgroundColor(Color.parseColor("#FF4081"));
+        }
+
+        title_layout = (TextView) findViewById(R.id.title_layout);
+
+        popupWindow = new PopupWindow(tabView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT,false);
+        popupWindow.setAnimationStyle(R.style.popupWindowAnim);
+//        mainview = (FrameLayout) findViewById(R.id.mainview);
         customvp = (MyViewPager) findViewById(R.id.customvp);
         ll_tablayout = (LinearLayout) findViewById(R.id.ll_tablayout);
+        ll_tablayout2 = (LinearLayout) findViewById(R.id.ll_tablayout2);
         parentScrollView = (ScrollViewLayout) findViewById(R.id.parentScrollView);
         parentScrollView.setOnScrollViewLayoutListener(this);
         list = new ArrayList();
@@ -68,11 +87,15 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
 
     @Override
     public void ScrollY(int scrollY) {
-        parentScrollView.getLocationOnScreen(location);
-        scrollTop = location[1];
-
+    /*    parentScrollView.getLocationOnScreen(location);
+        scrollTop = location[1];*/
         tabTop = ll_tablayout.getTop();
-        if(scrollY>=tabTop){
+
+        Log.i("aaa","scrollY"+scrollY);
+        Log.i("aaa","tabTop"+tabTop);
+
+
+        if(scrollY>tabTop){
             if(!isShow){
                 showWindow();
             }
@@ -83,21 +106,20 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
         }
     }
 
-
     private void removeWindow() {
-        if(popupWindow!=null){
+        ll_tablayout2.setVisibility(View.GONE);
+        isShow =false;
+    /*    if(popupWindow!=null){
             popupWindow.dismiss();
             isShow =false;
-        }
+        }*/
     }
 
     private  void   showWindow(){
-        if(tabView==null){
-            tabView = LayoutInflater.from(SV_Activity.this).inflate(R.layout.tab_layout,null);
-        }
-        popupWindow = new PopupWindow(tabView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT,false);
-        popupWindow.showAtLocation(mainview, Gravity.NO_GRAVITY,0,scrollTop);
+        ll_tablayout2.setVisibility(View.VISIBLE);
         isShow = true;
+//        popupWindow.showAtLocation(mainview, Gravity.NO_GRAVITY,0,scrollTop);
+        // popupWindow.showAsDropDown(title_layout);
     }
 
 }

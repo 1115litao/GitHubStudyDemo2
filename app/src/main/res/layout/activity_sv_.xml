@@ -9,7 +9,14 @@
     android:id="@+id/mainview"
     tools:context="com.studyproject.SV_Activity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
     <TextView
+        android:id="@+id/title_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#BDD9A9"
@@ -17,6 +24,15 @@
         android:gravity="center"
         android:textSize="18sp"
         />
+
+        <LinearLayout
+            android:id="@+id/ll_tablayout2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            >
+            <include layout="@layout/tab_layout"></include>
+        </LinearLayout>
 
 
     <com.studyproject.weight.ScrollViewLayout
@@ -41,7 +57,8 @@
             <LinearLayout
                 android:id="@+id/ll_tablayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="50dp"
+                >
                 <include layout="@layout/tab_layout"></include>
             </LinearLayout>
 
@@ -58,6 +75,6 @@
 
     </com.studyproject.weight.ScrollViewLayout>
 
-
+    </LinearLayout>
 
 </LinearLayout>

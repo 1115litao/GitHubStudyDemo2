@@ -1,8 +1,12 @@
 package com.studyproject.weight;
 
 import android.content.Context;
+import android.graphics.Rect;
+import android.support.annotation.IntDef;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ScrollView;
 
@@ -16,9 +20,6 @@ import android.widget.ScrollView;
 public class ScrollViewLayout extends ScrollView {
 
     public  ScrollListener listener;
-    private int  touchSlop;
-    private int dowX;
-    private int dowY;
 
     public  void setOnScrollViewLayoutListener(ScrollListener listener){
         this.listener = listener;
@@ -30,46 +31,29 @@ public class ScrollViewLayout extends ScrollView {
 
     public ScrollViewLayout(Context context) {
         super(context);
-        touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public ScrollViewLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public ScrollViewLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
+  /*  @Override
     public void computeScroll() {
         super.computeScroll();
         if(listener!=null){
             listener.ScrollY(getScrollY());
         }
-    }
-
-
- /*   @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-
-        int action = ev.getAction();
-        switch (action){
-            case MotionEvent.ACTION_DOWN:
-                dowX = (int) ev.getRawX();
-                dowY = (int) ev.getRawY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                int moveY = (int) ev.getRawY();
-                if(Math.abs(moveY-dowY)<touchSlop){
-                        return true;
-                }
-                break;
-        }
-
-
-
-        return super.onInterceptTouchEvent(ev);
     }*/
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        if(listener!=null){
+            listener.ScrollY(t);
+        }
+    }
 }

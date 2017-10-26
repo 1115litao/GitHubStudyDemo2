@@ -22,7 +22,6 @@ public class RecycleAdatper  extends RecyclerView.Adapter<RecycleAdatper.Holder>
 
     public RecycleAdatper(Context context) {
         this.context = context;
-
     }
 
     @Override
