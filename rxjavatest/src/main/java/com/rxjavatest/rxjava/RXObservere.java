@@ -19,7 +19,6 @@ public abstract class RXObservere<T> implements Observer<T> {
     public  RXObservere(Context context,Boolean isShow) {
         this.context = context;
         this.isShow =  isShow;
-
     }
 
     public   HttpDialog    getShowDialog(){

@@ -20,4 +20,6 @@ public  class RetrofitUtils {
         NewInterface  newInterface =   NetUtils.RetrofitBuilderGson().create(NewInterface.class);
         return newInterface;
     }
+
+
 }

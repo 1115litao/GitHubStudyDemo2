@@ -1,5 +1,6 @@
 package com.studyproject.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,12 +19,14 @@ import com.studyproject.weight.CustomHeightViewPager;
 import com.studyproject.weight.MyViewPager;
 
 
+@SuppressLint("ValidFragment")
 public class FragmentOne extends Fragment {
 
 
     private RecyclerView fragment_list;
     private int type;
     private MyViewPager viewPager;
+
     private LinearLayout content_layout;
 
 
@@ -38,7 +41,6 @@ public class FragmentOne extends Fragment {
 
     public   FragmentOne(int type, MyViewPager viewPager){
                 this.type = type;
-
                 this.viewPager = viewPager;
     }
 

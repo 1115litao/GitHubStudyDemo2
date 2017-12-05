@@ -2,6 +2,8 @@ package com.rxjavatest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -52,5 +54,9 @@ public class MainActivity extends Activity {
                         super.onError(e);
                     }
                 });
+
+
+
+
     }
 }
