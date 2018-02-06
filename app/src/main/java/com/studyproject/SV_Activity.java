@@ -1,14 +1,10 @@
 package com.studyproject;
 
-import android.graphics.Color;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +16,6 @@ import android.widget.TextView;
 import com.studyproject.adapter.VPAdapter;
 import com.studyproject.fragment.FragmentOne;
 import com.studyproject.fragment.FragmentTwo;
-import com.studyproject.weight.CustomHeightViewPager;
 import com.studyproject.weight.MyViewPager;
 import com.studyproject.weight.ScrollViewLayout;
 
@@ -34,13 +29,10 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
     private LinearLayout ll_tablayout2;
     private List<Fragment> list;
     private ScrollViewLayout parentScrollView;
-    private  int[] location= new int[2];
-    private int scrollTop;
     private int tabTop;
     private boolean isShow;
     private View tabView;
     private PopupWindow popupWindow;
-    private FrameLayout mainview;
     private TextView title_layout;
 
     @Override
@@ -87,8 +79,6 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
 
     @Override
     public void ScrollY(int scrollY) {
-    /*    parentScrollView.getLocationOnScreen(location);
-        scrollTop = location[1];*/
         tabTop = ll_tablayout.getTop();
 
         Log.i("aaa","scrollY"+scrollY);
@@ -109,17 +99,12 @@ public class SV_Activity extends AppCompatActivity implements ScrollViewLayout.S
     private void removeWindow() {
         ll_tablayout2.setVisibility(View.GONE);
         isShow =false;
-    /*    if(popupWindow!=null){
-            popupWindow.dismiss();
-            isShow =false;
-        }*/
     }
 
     private  void   showWindow(){
         ll_tablayout2.setVisibility(View.VISIBLE);
         isShow = true;
-//        popupWindow.showAtLocation(mainview, Gravity.NO_GRAVITY,0,scrollTop);
-        // popupWindow.showAsDropDown(title_layout);
+
     }
 
 }

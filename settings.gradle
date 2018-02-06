@@ -1,1 +1,1 @@
-include ':app', ':rxjavatest', ':javaconverkotlin', ':demotest', ':uiautomatordemo'
+include ':app', ':rxjavatest', ':demotest'

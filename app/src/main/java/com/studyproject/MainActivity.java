@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button bt1;
+    private Button bt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +22,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         bt1 = (Button) findViewById(R.id.bt1);
+        bt2 = (Button) findViewById(R.id.bt2);
     }
 
     private void initListener() {
         bt1.setOnClickListener(this);
+        bt2.setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt1:
                 Intent intent = new Intent(this,SV_Activity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.bt2:
+                Intent intent2 = new Intent(this,DetailPageActivity.class);
+                startActivity(intent2);
                 break;
         }
     }

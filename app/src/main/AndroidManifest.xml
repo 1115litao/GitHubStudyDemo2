@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".SV_Activity">
         </activity>
+        <activity android:name=".DetailPageActivity">
+        </activity>
     </application>
 
 </manifest>

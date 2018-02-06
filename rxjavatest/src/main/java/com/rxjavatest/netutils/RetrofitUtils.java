@@ -1,5 +1,7 @@
 package com.rxjavatest.netutils;
 
+import com.rxjavatest.api.NewInterface;
+
 /**
  * @author 李涛
  * @description

@@ -3,4 +3,30 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="c_app_bg_ebebeb">#ebebeb</color>
+    <color name="c_4c444444">#4c444444</color>
+    <color name="c_app_bg_e6e5e5">#e6e5e5</color>
+    <color name="c_medicine_details_key">#333333</color>
+    <color name="c_medicine_details_value">#333333</color>
+    <color name="c_value_787878">#787878</color>
+    <color name="c_666666">#666666</color>
+    <color name="c_medicine_details_top_value">#999999</color>
+    <color name="c_login_text_bg">#e9a0a1</color>
+    <color name="c_grey_777777">#777777</color>
+    <color name="c_grey_444444">#444444</color>
+    <color name="c_orange_ff9000">#ff9000</color>
+    <color name="c_50e2231a">#50e2231a</color>
+    <color name="c_f6f6f6">#f6f6f6</color>
+    <color name="c_chat_text_color">#444444</color>
+    //背景主色调
+    <color name="c_gray_f0f1f5">#f6f6f6</color>
+    <color name="c_d4a554">#d4a554</color>
+
+    <!-- title的tip背景色 -->
+    <color name="c_fea8a2">#fea8a2</color>
+    <color name="c_a5a5a5">#a5a5a5</color>
+    <color name="c_99000000">#99000000</color>
+    <!--圖片選擇背景透明-->
+    <color name="c_66000000">#66000000</color>
 </resources>

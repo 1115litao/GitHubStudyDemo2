@@ -22,6 +22,14 @@
         android:gravity="center"
         android:text="ScrollView+ViewPager\n实现自定义的ViewPager高度"
         />
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="活动详情页面"
+        />
 
 
     </LinearLayout>

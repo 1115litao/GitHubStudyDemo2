@@ -1,5 +1,8 @@
 package com.rxjavatest.rxjava;
 import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -40,11 +43,16 @@ public abstract class RXObservere<T> implements Observer<T> {
 
     @Override
     public void onNext( T o) {
-
+        if(o!=null|| !TextUtils.isEmpty(o.toString())){
+            Log.i("http",""+o.toString());
+        }else{
+            Log.i("http","返回数据Null");
+        }
     }
 
     @Override
     public void onError( Throwable e) {
+        Log.i("http","失败");
         if(getShowDialog().isShowing()){
             getShowDialog().dismiss();
         }

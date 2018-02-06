@@ -3,10 +3,7 @@ package com.demotest.crash;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-
-import com.demotest.Main3Activity;
-
+import com.demotest.ErrorViewActivity;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -56,7 +53,7 @@ public class CrashHandler  implements Thread.UncaughtExceptionHandler{
         String result = writer.toString();
         sb.append(result);
 
-        Intent intent = new Intent(mContext, Main3Activity.class);
+        Intent intent = new Intent(mContext, ErrorViewActivity.class);
         intent.putExtra("errordata",sb.toString());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);

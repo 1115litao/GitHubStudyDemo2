@@ -22,12 +22,13 @@ public class OKInterceptor implements Interceptor {
 
         Request  originRequest = chain.request();
         HttpUrl httpUrl = originRequest.url();
-        HttpUrl url = httpUrl.newBuilder().addQueryParameter("a","fy").build();
+        //在这里可以添加一个公共的参数
+        HttpUrl url = httpUrl.newBuilder().addQueryParameter("","").build();
         Request request = originRequest.newBuilder()
                 .url(url)
                 .method(originRequest.method(),originRequest.body())
                 .build();
-        Log.i("Http",""+url);
+        Log.i("http","请求链接的Url----------------------------------》"+url);
         return chain.proceed(request);
     }
 }
