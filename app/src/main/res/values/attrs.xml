@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="YR_ErrorPromptEditText">
+        <!--自定义编辑框属性-->
+        <attr name="password" format="boolean"></attr>
+        <attr name="hint" format="string"></attr>
+        <attr name="inputType" >
+            <flag name="text" value="1"></flag>f
+            <flag name="number" value="2"></flag>
+            <flag name="phone" value="3"></flag>
+            <flag name="textPassword" value="128"></flag>
+        </attr>
+        <attr name="clickable" format="boolean"></attr>
+        <attr name="focusable" format="boolean"></attr>
+        <!--是否显示编辑框下面横线-->
+        <attr name="isShowView" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="ArcProgress">
+        <attr name="arc_progress" format="integer"/>
+        <attr name="arc_angle" format="float"/>
+        <attr name="arc_stroke_width" format="dimension"/>
+        <attr name="arc_max" format="integer"/>
+
+        <attr name="arc_unfinished_color" format="color"/>
+        <attr name="arc_finished_color" format="color"/>
+
+        <attr name="arc_text_size" format="dimension"/>
+        <attr name="arc_text_color" format="color"/>
+
+        <attr name="arc_suffix_text" format="string"/>
+        <attr name="arc_suffix_text_size" format="dimension"/>
+        <attr name="arc_suffix_text_padding" format="dimension"/>
+
+        <attr name="arc_bottom_text" format="string"/>
+        <attr name="arc_bottom_text_size" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="above_wave_color" format="color"/>
+        <attr name="blow_wave_color" format="color"/>
+        <attr name="progress" format="integer"/>
+        <attr name="wave_length" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="little" value="3"/>
+        </attr>
+        <attr name="wave_height" format="enum">
+            <enum name="large" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="little" value="3"/>
+        </attr>
+        <attr name="wave_hz" format="enum">
+            <enum name="fast" value="1"/>
+            <enum name="normal" value="2"/>
+            <enum name="slow" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Themes">
+        <attr name="waveViewStyle" format="reference"/>
+    </declare-styleable>
+    <!-- 有百分比的圆圈progressdialog -->
+    <declare-styleable name="OPCircleProgressBar">
+        <attr name="mlpb_inner_radius" format="dimension" />
+        <attr name="mlpb_background_color" format="color" />
+        <attr name="mlpb_progress_color" format="color" />
+        <attr name="mlpb_progress_stoke_width" format="dimension" />
+        <attr name="mlpb_show_arrow" format="boolean" />
+        <attr name="mlpb_enable_circle_background" format="boolean" />
+        <attr name="mlpb_arrow_width" format="dimension" />
+        <attr name="mlpb_arrow_height" format="dimension" />
+
+        <attr name="mlpb_progress" format="integer" />
+        <attr name="mlpb_max" format="integer" />
+
+        <attr name="mlpb_progress_text_size" format="dimension" />
+        <attr name="mlpb_progress_text_color" format="color" />
+
+        <!--<attr name="mlpb_progress_text_offset" format="dimension"/>-->
+
+        <attr name="mlpb_progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TF_DoctorAsstantChatList">
+        <attr name="msgListMyBubbleBackground" format="reference"/>
+        <attr name="msgListOtherBubbleBackground" format="reference"/>
+        <attr name="msgListShowUserAvatar" format="boolean"/>
+        <attr name="msgListShowUserNick" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TagGroup">
+        <!-- Whether the TagGroup allow repeat tags -->
+        <attr name="atg_allowRepeat" format="boolean"/>
+
+        <!-- Set tags count limit -->
+        <attr name="atg_tagsCountLimit" format="integer"/>
+
+        <!-- Whether the tag group is in append mode. -->
+        <attr name="atg_isAppendMode" format="boolean"/>
+        <!-- If the tag group is in append mode, what the hint of input tag. -->
+        <attr name="atg_inputHint" format="string"/>
+        <!-- Set input max length -->
+        <attr name="atg_inputMaxLength" format="integer"/>
+
+        <!-- The tag view outline border color. -->
+        <attr name="atg_borderColor" format="color"/>
+        <!-- The tag view text color. -->
+        <attr name="atg_textColor" format="color"/>
+        <!-- The tag view background color. -->
+        <attr name="atg_backgroundColor" format="color"/>
+
+        <!-- The dash outline border color, when in append mode. -->
+        <attr name="atg_dashBorderColor" format="color"/>
+        <!-- The input tag hint text color, when in append mode. -->
+        <attr name="atg_inputHintColor" format="color"/>
+        <!-- The input tag type text color, when in append mode. -->
+        <attr name="atg_inputTextColor" format="color"/>
+
+        <!-- The checked tag view outline border color. -->
+        <attr name="atg_checkedBorderColor" format="color"/>
+        <!-- The checked text color. -->
+        <attr name="atg_checkedTextColor" format="color"/>
+        <!-- The checked marker color. -->
+        <attr name="atg_checkedMarkerColor" format="color"/>
+        <!-- The checked tag view background color. -->
+        <attr name="atg_checkedBackgroundColor" format="color"/>
+
+        <!-- The tag view background color, when the tag view is being pressed. -->
+        <attr name="atg_pressedBackgroundColor" format="color"/>
+
+        <!-- The tag view outline border stroke width. -->
+        <attr name="atg_borderStrokeWidth" format="dimension"/>
+        <!-- The tag view text size. -->
+        <attr name="atg_textSize" format="dimension"/>
+
+        <attr name="atg_horizontalSpacing" format="dimension"/>
+        <attr name="atg_verticalSpacing" format="dimension"/>
+        <attr name="atg_horizontalPadding" format="dimension"/>
+        <attr name="atg_verticalPadding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MaxHeightView">
+        <attr name="mhv_HeightRatio" format="reference|float" />
+        <attr name="mhv_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+
+
+
+    <!--TabIndicator的参数设置-->
+    <declare-styleable name="PagerSlidingTab">
+        <attr name="indicatorColor" format="color" />
+        <attr name="underlineColor" format="color" />
+        <attr name="dividerColor" format="color" />
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="underlineHeight" format="dimension" />
+        <attr name="pst_dividerPadding" format="dimension" />
+        <attr name="tabPaddingLeftRight" format="dimension" />
+        <attr name="scrollOffset" format="dimension" />
+        <attr name="tabBackgrounds" format="reference" />
+        <attr name="sameLine" format="boolean" />
+        <attr name="pst_textAllCaps" format="boolean" />
+    </declare-styleable>
+</resources>

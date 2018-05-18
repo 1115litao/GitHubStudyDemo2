@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.studyproject.TitleActivity">
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--<HorizontalScrollView
+        android:id="@+id/hs_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scrollbars="none"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:id="@+id/ll_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"></LinearLayout>
+    </HorizontalScrollView>-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+
+    <TextView
+        android:id="@+id/title_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="常用"
+        />
+    <TextView
+        android:id="@+id/title_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="最新"
+        android:layout_marginRight="10dp"
+        />
+    <View
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:background="#ffaa"
+      />
+<com.studyproject.weight.LT_NavitaitionTitleView
+    android:id="@+id/slidetitleview"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_weight="1"
+    ></com.studyproject.weight.LT_NavitaitionTitleView>
+    <ImageView
+        android:id="@+id/add_image"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher_round"/>
+
+</LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+
+   <!-- <com.studyproject.TagGroup
+        android:id="@+id/taggroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:atg_allowRepeat="false"
+        app:atg_borderColor="#ffaa"
+        app:atg_checkedBackgroundColor="#ffaa"
+        app:atg_checkedBorderColor="#ffaa"
+        app:atg_inputHint="请输入"
+        app:atg_inputMaxLength="40"
+        app:atg_isAppendMode="true"
+        app:atg_tagsCountLimit="10"
+        app:atg_textColor="#000"></com.studyproject.TagGroup>-->
+</LinearLayout>
+</LinearLayout>

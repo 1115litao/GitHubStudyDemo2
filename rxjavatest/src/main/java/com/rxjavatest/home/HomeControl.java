@@ -48,7 +48,6 @@ public class HomeControl implements HomeItf.homePersenter {
                     @Override
                     public void onNext(MessageDataBean o) {
                         super.onNext(o);
-//                        new JsonParser().parse("12");
                         urlData =  o;
                         baseView.hettpNetData(urlData);
                     }
@@ -58,8 +57,5 @@ public class HomeControl implements HomeItf.homePersenter {
                     }
                 });
     }
-
-
-
 
 }

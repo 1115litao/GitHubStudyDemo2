@@ -18,9 +18,10 @@
         <TextView
             android:id="@+id/title_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:text="返回"
             android:textSize="15dp"
+            android:drawableLeft="@drawable/xc_d_chat_back"
             />
 
 
@@ -35,12 +36,12 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <WebView
         android:id="@+id/custom_web"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="1dp"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical"></WebView>
 
 
 </LinearLayout>

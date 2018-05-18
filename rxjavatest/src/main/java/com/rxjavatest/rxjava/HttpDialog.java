@@ -18,7 +18,7 @@ import com.rxjavatest.R;
 
 public class HttpDialog extends Dialog {
 
-    public static int TRAN_STYLE = R.style.xc_s_dialog;
+    public static int TRAN_STYLE = R.style.style_dialog;
 
     public HttpDialog(@NonNull Context context) {
         super(context,TRAN_STYLE);
@@ -26,11 +26,12 @@ public class HttpDialog extends Dialog {
     }
     public HttpDialog(@NonNull Context context, @StyleRes int themeResId) {
         super(context, themeResId);
+        initView();
     }
 
     private void initView() {
-        setContentView(R.layout.dialog_view);
         setWindowLayoutStyleAttr();
+        setContentView(R.layout.dialog_view);
     }
 
     /**

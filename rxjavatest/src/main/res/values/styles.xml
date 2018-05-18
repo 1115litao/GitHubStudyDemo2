@@ -8,7 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="xc_s_dialog" parent="@android:style/Theme.Dialog">
+    <style name="style_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">false</item>

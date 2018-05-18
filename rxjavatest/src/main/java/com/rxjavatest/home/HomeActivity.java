@@ -1,4 +1,5 @@
 package com.rxjavatest.home;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import com.rxjavatest.adapter.HomeRecyAdapter;
 import com.rxjavatest.base.LT_BaseActivity;
 import com.rxjavatest.bean.HomeResults;
 import com.rxjavatest.bean.MessageDataBean;
+import com.rxjavatest.webview.CustomWebView;
 
 
 public class HomeActivity extends LT_BaseActivity implements HomeItf.homeView{
@@ -50,7 +52,9 @@ public class HomeActivity extends LT_BaseActivity implements HomeItf.homeView{
            adapter.setOnClickRecycleListener(new HomeRecyAdapter.OnClickListenerR() {
                @Override
                public void Onclick(View view, int position, HomeResults homeResults) {
-
+                   Intent intent = new Intent(HomeActivity.this, CustomWebView.class);
+                   intent.putExtra("weburl",""+homeResults.getUrl());
+                   startActivity(intent);
                }
            });
     }

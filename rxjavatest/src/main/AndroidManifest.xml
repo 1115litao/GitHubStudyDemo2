@@ -21,8 +21,7 @@
         </activity>
         <activity android:name=".home.HomeActivity">
         </activity>
-        <activity android:name=".base.LT_BaseActivity">
-        </activity>
+
         <activity android:name=".webview.CustomWebView">
         </activity>
     </application>

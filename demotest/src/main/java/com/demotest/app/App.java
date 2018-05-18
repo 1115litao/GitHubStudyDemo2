@@ -17,7 +17,7 @@ public class App extends Application {
         super.onCreate();
 
         //处理Error
-        CrashHandler crashHandler = CrashHandler.getInstance();
-        crashHandler.init(getApplicationContext());
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(getApplicationContext());
     }
 }
