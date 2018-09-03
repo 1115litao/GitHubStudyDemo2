@@ -1,11 +1,22 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jakewharton.butterknife'
+// 得到当前系统时间
+def releaseTime() {
+    return new Date().format("MMddHHmm", TimeZone.getTimeZone("GMT+8"))
+}
+
 android {
+    signingConfigs {
+        config {
+            keyAlias 'kotlin_test'
+            keyPassword 'litao123'
+            storeFile file('C:/Users/andro/kotlin_test.jks')
+            storePassword 'litao123'
+        }
+    }
     compileSdkVersion 26
-
-
-
     defaultConfig {
         applicationId "com.kotilndemo"
         minSdkVersion 15
@@ -16,22 +27,33 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "app_" + buildType.name + "_v${defaultConfig.versionName}-${releaseTime()}.apk"
+            }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okio:okio:1.14.1'
+    compile 'com.google.code.gson:gson:2.6.2'
 }
