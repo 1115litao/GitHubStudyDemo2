@@ -831,7 +831,9 @@ public class TagGroup extends ViewGroup {
                         checkedTag.setChecked(false);
                     }
                 } else {
-                    onClick.onlickContent(tag);
+                    if(onClick !=null){
+                        onClick.onlickContent(tag);
+                    }
 
                     // If the clicked tag is currently checked, delete the tag.
                     if (tag.isChecked) { //在这里删除内容

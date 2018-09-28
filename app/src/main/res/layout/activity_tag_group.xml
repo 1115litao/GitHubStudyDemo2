@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.studyproject.TagGroupActivity">
+
+    <com.studyproject.TagGroup
+        android:id="@+id/tagGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:atg_allowRepeat="false"
+        app:atg_borderColor="@color/colorAccent"
+        app:atg_checkedBackgroundColor="@color/colorPrimary"
+        app:atg_checkedBorderColor="@color/colorPrimaryDark"
+        app:atg_inputHint="请输入"
+        app:atg_inputMaxLength="40"
+        app:atg_isAppendMode="true"
+        app:atg_tagsCountLimit="10"
+        app:atg_textColor="#ffaa"></com.studyproject.TagGroup>
+
+
+
+</LinearLayout>

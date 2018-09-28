@@ -1,15 +1,17 @@
 package com.kotilndemo.ui;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.SeekBar;
 
-import com.google.gson.Gson;
 import com.kotilndemo.R;
 import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import http.OkHttpUtil;
@@ -28,10 +30,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         initView();
-        initData();
-//        Intent intent = new Intent(this,KotlinTestActivity.class);
-//        startActivity(intent);
-    }
+       // initData();
+
+        Intent intent = new Intent(this,MusicActivity.class);
+        startActivity(intent);
+}
 
     private void initData() {
         HashMap<String,String>  params = new HashMap<>();
@@ -57,4 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("标签五"));
 
     }
+
+
+
 }

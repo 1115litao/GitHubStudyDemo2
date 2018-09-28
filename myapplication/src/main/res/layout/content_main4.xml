@@ -5,11 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kotilndemo.ui.MainActivity">
-
-  <TextView
-      android:id="@+id/test_1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.myapplication.Main4Activity"
+    tools:showIn="@layout/app_bar_main4">
 
 </android.support.constraint.ConstraintLayout>

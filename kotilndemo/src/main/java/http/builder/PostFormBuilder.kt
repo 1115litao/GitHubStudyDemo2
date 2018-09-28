@@ -19,7 +19,7 @@ class PostFormBuilder : OkHttpRequestBuilder<PostFormBuilder>(), HasParamsable {
 
     override fun addParams(key: String, `val`: String): OkHttpRequestBuilder<*> {
         if (this.params == null) {
-            params = LinkedHashMap<String, String>()
+            params = LinkedHashMap()
         }
         params!![key] = `val`
         return this

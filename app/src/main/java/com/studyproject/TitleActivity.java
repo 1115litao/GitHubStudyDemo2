@@ -3,6 +3,7 @@ package com.studyproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -47,6 +48,8 @@ public class TitleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this,TagGroupActivity.class);
+        startActivity(intent);
         setContentView(R.layout.activity_title);
         db = TitleShowModle.getInstance(this,"sqlitetable");
         initData();

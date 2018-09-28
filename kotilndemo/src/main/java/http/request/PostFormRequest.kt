@@ -19,9 +19,9 @@ import java.net.URLEncoder
 
 class PostFormRequest :OkHttpRequest {
 
-    override fun <T> wrapRequestBody(requestBody: RequestBody, callback: Callback<T>): RequestBody {
+    override fun <T> wrapRequestBody(requestBody: RequestBody, callback: Callback<T>?): RequestBody {
         if(callback ==null) return requestBody
-        var  countingRequestBody = CountingRequestBody(requestBody,object :CountingRequestBody.Listener{
+        val  countingRequestBody = CountingRequestBody(requestBody,object :CountingRequestBody.Listener{
             override fun onRequestProgress(bytesWritten: Long, contentLength: Long) {
                 OkHttpUtil.getExecutor().execute {
                     callback.inProgress(bytesWritten * 1.0f / contentLength, contentLength, id)

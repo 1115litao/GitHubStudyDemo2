@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.demotest.SqliteDemo;
+
 import java.util.ArrayList;
 
 /**
@@ -32,7 +34,11 @@ public class SqliteDb extends SQLiteOpenHelper {
 
     public static SqliteDb getInstance(Context context) {
         if (sqliteDb == null) {
-            return sqliteDb = new SqliteDb(context, SQLITE__NAME, null, VERSION);
+            synchronized (SqliteDemo.class){
+                if(sqliteDb == null ){
+                    return sqliteDb = new SqliteDb(context, SQLITE__NAME, null, VERSION);
+                }
+            }
         }
         return sqliteDb;
     }
@@ -55,24 +61,24 @@ public class SqliteDb extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        switch (VERSION) {
-            case 1:
-                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text)");
-                break;
-            case 2:
-                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text)"); //第一次升级
-                break;
-            case 3:
-                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text,name4 text)"); //第二次升级
-                break;
-            case 4:
-                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text,name4 INTEGER)"); //第三次升级
-                break;
-            case 5:
-                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2)"); //第四次升级
-                break;
-        }
+        createVersionTable(db,VERSION);
+//        switch (VERSION) {
+//            case 1:
+//                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text)");
+//                break;
+//            case 2:
+//                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text)"); //第一次升级
+//                break;
+//            case 3:
+//                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text,name4 text)"); //第二次升级
+//                break;
+//            case 4:
+//                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2 text,name3 text,name4 INTEGER)"); //第三次升级
+//                break;
+//            case 5:
+//                db.execSQL("CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY, name text,name2)"); //第四次升级
+//                break;
+//        }
 
     }
 
@@ -91,28 +97,36 @@ public class SqliteDb extends SQLiteOpenHelper {
      * @param db
      * @param version
      */
-    private void judgeVersion(SQLiteDatabase db, int version) {
-        for (int i = sqliteVersion.indexOf(version); i < sqliteVersion.size(); i++) {
-            switch (sqliteVersion.get(i)) {
-                case 2:
-                    updateTableIfAddField(db, TABLE_NAME, 2, sqliteVersion.get(i)); //新添加两个个字段 name2 name3
-                    break;
-                case 3:
-                    updateTableIfAddField(db, TABLE_NAME, 1, sqliteVersion.get(i));//新添加一个字段 name4
-                    break;
-                case 4:
-                    updateTableIfAddField(db, TABLE_NAME, 0, sqliteVersion.get(i));//修改最后一个字段 name4的类型
-                    break;
-                case 5:
-                    updateTableIfDeleteField(db, TABLE_NAME, sqliteVersion.get(i));//修改最后一个字段 name4的类型
-                    break;
+    private void judgeVersion(final SQLiteDatabase db, final int version) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if(sqliteVersion.contains(version)){
+                    for (int i = sqliteVersion.indexOf(version); i < sqliteVersion.size(); i++) {
+                        switch (sqliteVersion.get(i)) {
+                            case 2:
+                                updateTableIfAddField(db, TABLE_NAME, 2, sqliteVersion.get(i)); //新添加两个个字段 name2 name3
+                                break;
+                            case 3:
+                                updateTableIfAddField(db, TABLE_NAME, 1, sqliteVersion.get(i));//新添加一个字段 name4
+                                break;
+                            case 4:
+                                updateTableIfAddField(db, TABLE_NAME, 0, sqliteVersion.get(i));//修改最后一个字段 name4的类型
+                                break;
+                            case 5:
+                                updateTableIfDeleteField(db, TABLE_NAME, sqliteVersion.get(i));//修改最后一个字段 name4的类型
+                                break;
+                        }
+                    }
+                }
             }
-        }
+        }).start();
+
     }
 
 
     /***
-     * 数据库升级多出字段的情况瞎
+     * 数据库升级多出字段的情况下
      * @param db
      * @param tableName 当前迁移的表格名子
      * @param addFields  新添加字段的个数   0表示没有添加的字段  也可用作修改字段的数据类型
@@ -146,7 +160,6 @@ public class SqliteDb extends SQLiteOpenHelper {
 
 
     private  void updateTableIfDeleteField(SQLiteDatabase db, String tableName, int version){
-
         try{
             db.beginTransaction();
             db.execSQL("ALTER TABLE " + tableName + " RENAME TO  " + TEMP_TABLE_NAME + "");
@@ -161,10 +174,6 @@ public class SqliteDb extends SQLiteOpenHelper {
         }
 
     }
-
-
-
-
 
 
     private void createVersionTable(SQLiteDatabase db, int version) {

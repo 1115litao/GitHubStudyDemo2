@@ -1,1 +1,1 @@
-include ':app', ':rxjavatest', ':demotest', ':kotilndemo', ':JAVADemo'
+include ':app', ':rxjavatest', ':demotest', ':kotilndemo', ':JAVADemo', ':kefu-easeui', ':myapplication'

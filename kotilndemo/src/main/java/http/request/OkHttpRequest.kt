@@ -36,7 +36,7 @@ abstract class OkHttpRequest {
 
     abstract fun builderRequestBody(): RequestBody
 
-    protected open fun <T> wrapRequestBody(requestBody: RequestBody, callback: Callback<T>): RequestBody {
+    protected open fun <T> wrapRequestBody(requestBody: RequestBody, callback: Callback<T>?): RequestBody {
         return requestBody
     }
 
@@ -46,7 +46,7 @@ abstract class OkHttpRequest {
         return RequestCall(this)
     }
 
-    fun <T> generateRequest(callback: Callback<T>): Request {
+    fun <T> generateRequest(callback: Callback<T>?): Request {
         val requestBody = builderRequestBody()
         val wrappedRequestBody = wrapRequestBody(requestBody, callback)
         val request = builderRequest(wrappedRequestBody)

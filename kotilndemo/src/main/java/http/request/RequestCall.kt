@@ -61,7 +61,7 @@ class RequestCall {
      * @param callback
      * @return
      */
-    private fun <T>buildCall(callback:Callback<T>):Call{
+    private fun  buildCall(callback:Callback<*>?):Call{
             request = generateRequest(callback)
         if(readTimeOut>0||writeTimeOut>0||connTimeOut>0){
             readTimeOut = if (readTimeOut>0) readTimeOut else OkHttpUtil.DEFAULT_MILLISECONDS
@@ -81,7 +81,7 @@ class RequestCall {
         return call!!
     }
 
-    fun<T> generateRequest(callback: Callback<T>):Request{
+    fun<T> generateRequest(callback: Callback<T>?):Request{
         return okHttpResquest!!.generateRequest(callback)
     }
 
@@ -102,6 +102,7 @@ class RequestCall {
         return okHttpResquest!!
     }
     fun execute(): Response? {
+        buildCall(null)
         return call?.execute()
     }
 

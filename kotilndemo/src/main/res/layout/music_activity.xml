@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FB"
+    android:padding="10dp"
+    tools:context="com.kotilndemo.ui.MusicActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/rotate_bg_iv"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/musicbackground"/>
+        <TextView
+            android:id="@+id/show_music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Welcome Music!!!"
+            android:textColor="#ffaa"/>
+
+        <ImageView
+            android:id="@+id/axle_iv"
+            android:layout_width="20dp"
+            android:layout_height="150dp"
+            android:background="@drawable/zhou2"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"/>
+    </RelativeLayout>
+
+
+    <SeekBar
+        android:id="@+id/music_seekbar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/music_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="00.00 "
+        android:layout_marginBottom="5dp"
+        android:layout_alignBottom="@id/music_seekbar"/>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/up_bt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/up"/>
+
+        <Button
+            android:id="@+id/play_bt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/stop"/>
+
+        <Button
+            android:id="@+id/next_bt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/next"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/misic_list"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/list"/>
+
+
+</RelativeLayout>

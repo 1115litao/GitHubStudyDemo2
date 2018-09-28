@@ -116,7 +116,7 @@ class OkHttpUtil {
          * @param url 请求路径
          * @param callback 请求的数据回调
          */
-        fun simpleGet(url: String, callback: Callback<Any>) {
+        fun <T>simpleGet(url: String, callback: Callback<T>) {
             get().url(url).build().execute(callback)
         }
         /**
@@ -158,7 +158,8 @@ class OkHttpUtil {
 
     fun <T>execute(requestCall: RequestCall, callback: Callback<T>?) {
 
-        var finalCallback  = callback?: DefaultCallback()
+        val finalCallback  = callback?: DefaultCallback()
+
         val id: Int = requestCall.getOkHttpRequest().getIds()
 
         requestCall.getCall().enqueue(object : okhttp3.Callback {
